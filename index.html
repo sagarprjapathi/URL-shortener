@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="content-container">
+        <h1>URL Shortener</h1>
+        <form id="urlForm">
+            <label for="longURL">Enter Long URL:</label><br>
+            <input type="text" id="longURL" name="longURL" required><br>
+            <button type="submit">Shorten URL</button>
+        </form>
+        <div id="shortURL"></div>
+    </div>
+
+    <script src="urlShortener.js"></script>
+    <script>
+        const shortener = new URLShortener();
+
+        document.getElementById('urlForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const longURL = document.getElementById('longURL').value;
+            const shortURL = shortener.encodeURL(longURL);
+            
+            // Display shortened URL
+            document.getElementById('shortURL').innerHTML = `Shortened URL: <a href="#" id="shortenedLink">${shortURL}</a>`;
+        });
+
+        // Add onclick event handler to navigate to original URL when clicking on shortened URL
+        document.getElementById('shortURL').addEventListener('click', function(event) {
+            event.preventDefault();
+            const shortURL = document.getElementById('shortenedLink').textContent;
+            shortener.decodeURL(shortURL);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #001f3f;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    opacity: 0;
+    animation: fadeInContainer 1s ease forwards;
+}
+
+@keyframes fadeInContainer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: #fff;
+}
+
+form {
+    margin-bottom: 20px;
+    display: block;
+    opacity: 0;
+    animation: slideInForm 1s ease forwards;
+}
+
+@keyframes slideInForm {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#shortURL {
+    margin-top: 20px;
+    display: block;
+    opacity: 0;
+    animation: slideInURLBox 1s ease forwards;
+}
+
+@keyframes slideInURLBox {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#shortenedLink {
+    color: #007bff;
+    text-decoration: none;
+    opacity: 0;
+    animation: fadeInLink 1s ease-in-out forwards;
+}
+
+@keyframes fadeInLink {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#shortenedLink:hover {
+    text-decoration: underline;
+}
+
+#content-container {
+    border: 5px solid #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
